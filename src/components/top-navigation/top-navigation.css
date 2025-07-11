@@ -1,0 +1,20 @@
+.top-nav__theme-switch.ant-menu-item{
+    margin-left: auto;
+}
+
+.top-nav__theme-switch.ant-menu-item-selected::after,
+.top-nav.ant-menu-item-selected::after,
+.top-nav.ant-menu-horizontal > .ant-menu-item:hover::after{
+    border-bottom-style: none !important;
+}
+
+.ant-menu-horizontal > .top-nav__theme-switch.ant-menu-item-selected, 
+.ant-menu-horizontal > .top-nav__theme-switch.ant-menu-item-selected:hover{
+    background-color: inherit;
+    outline: inherit !important;
+    transition: none;
+}
+
+.top-nav__item-title{
+    pointer-events: none;
+}

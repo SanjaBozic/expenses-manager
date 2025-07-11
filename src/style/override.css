@@ -1,0 +1,5 @@
+/* This file is used to override the default styles of Ant Design components. */
+
+.ant-layout-header{
+    padding: 0;
+}
