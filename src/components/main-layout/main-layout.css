@@ -1,0 +1,15 @@
+.main-layout {
+    height: 100vh;
+}
+
+.main-layout__content {
+    overflow: auto;
+    height: 100vh;
+    position: sticky;
+    top: 0;
+    left: 0;
+}
+
+.main-layout__footer {
+    text-align: center;
+}

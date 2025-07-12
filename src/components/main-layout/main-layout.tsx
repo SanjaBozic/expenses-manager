@@ -2,11 +2,11 @@ import { Layout } from 'antd';
 import { Content, Footer, Header } from 'antd/es/layout/layout';
 import { ThemeProvider } from 'antd-style';
 import { useState } from 'react';
-import '../top-navigation/top-navigation.css';
+import { BrowserRouter as Router } from 'react-router';
+import './main-layout.css';
 import TopNavigation from '../top-navigation/top-navigation';
 import SideNavigation from '../side-navigation/side-navigation';
 import PageRoutes from '../routes/page-routes';
-import { BrowserRouter as Router } from 'react-router';
 
 type themeAppearance = 'light' | 'dark';
 
@@ -20,18 +20,18 @@ function MainLayout() {
     return (
     <>
     <ThemeProvider appearance={theme}>
-        <Layout style={{height:"100vh"}}>
+        <Layout className="main-layout">
             <Header>
                 <TopNavigation switchTheme={switchTheme}/>
             </Header>
             <Router>
                 <Layout>
-                    <SideNavigation/>
+                    <SideNavigation />
                     <Layout>
-                        <Content>
+                        <Content className='main-layout__content'>
                             <PageRoutes/>
                         </Content>
-                        <Footer style={{ textAlign: 'center' }}>
+                        <Footer className='main-layout__footer'>
                             Sanja Božić Ribarić ©{new Date().getFullYear()}
                         </Footer>
                     </Layout>

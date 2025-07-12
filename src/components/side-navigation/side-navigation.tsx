@@ -20,7 +20,7 @@ function SideNavigation() {
         {
             key: '2',
             icon: <FallOutlined />,
-            label: <Link to="/deduction">Deduction</Link>
+            label: <Link to="/expenses">Expenses</Link>
         },
         {
             key: '3',
@@ -32,8 +32,8 @@ function SideNavigation() {
             label: 'Settings',
             icon: <SettingOutlined />,
             children: [
-            { key: '5', label: <Link to="/account">Account</Link> },
-            { key: '7', label: <Link to="/aboutus">About Us</Link> },
+            { key: '5', label: <Link to="/settings/categories">Categories</Link> },
+            { key: '7', label: <Link to="/settings/aboutus">About Us</Link> },
             ]
         }
     ];
