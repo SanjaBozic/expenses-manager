@@ -3,9 +3,9 @@ import Column from "antd/es/table/Column";
 
 interface DataType {
   key: string;
+  date: Date;
   description: string;
   amount: number;
-  date: Date;
   categories: string[];
 }
 
