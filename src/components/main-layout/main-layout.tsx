@@ -7,6 +7,7 @@ import './main-layout.css';
 import TopNavigation from '../top-navigation/top-navigation';
 import SideNavigation from '../side-navigation/side-navigation';
 import PageRoutes from '../routes/page-routes';
+import { DataContext, useCreateDataCtx } from '../../context/data-context';
 
 type themeAppearance = 'light' | 'dark';
 
@@ -17,28 +18,31 @@ function MainLayout() {
         setTheme(checked ? 'dark' : 'light');
     };
 
+    const data = useCreateDataCtx();
+
     return (
     <>
     <ThemeProvider appearance={theme}>
-        <Layout className="main-layout">
-            <Header>
-                <TopNavigation switchTheme={switchTheme}/>
-            </Header>
-            <Router>
-                <Layout>
-                    <SideNavigation />
+        <DataContext.Provider value={data}>
+            <Layout className="main-layout">
+                <Header>
+                    <TopNavigation switchTheme={switchTheme}/>
+                </Header>
+                <Router>
                     <Layout>
-                        <Content className='main-layout__content'>
-                            <PageRoutes/>
-                        </Content>
-                        <Footer className='main-layout__footer'>
-                            Sanja Božić Ribarić ©{new Date().getFullYear()}
-                        </Footer>
+                        <SideNavigation />
+                        <Layout>
+                            <Content className='main-layout__content'>
+                                <PageRoutes/>
+                            </Content>
+                            <Footer className='main-layout__footer'>
+                                Sanja Božić Ribarić ©{new Date().getFullYear()}
+                            </Footer>
+                        </Layout>
                     </Layout>
-                </Layout>
-            </Router>
-
-        </Layout>
+                </Router>
+            </Layout>
+        </DataContext.Provider>
     </ThemeProvider>
     </>
     )

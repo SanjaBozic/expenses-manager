@@ -2,11 +2,13 @@ import React, { useContext, useEffect, useRef, useState } from 'react';
 import type { GetRef, InputRef, TableProps } from 'antd';
 import { Button, Form, Input, Popconfirm, Table } from 'antd';
 import './categories.css'
+import { v4 as uuidv4 } from 'uuid';
 
 interface CategoriesGridProps {
-    localData: { key: number; category: string; color: string }[];
-    setLocalData: React.Dispatch<React.SetStateAction<{ key: number; category: string; color: string }[]>>;
+    localData: { key: string; category: string; color: string }[];
+    setLocalData: React.Dispatch<React.SetStateAction<{ key: string; category: string; color: string }[]>>;
     keyLocalData: string;
+    updateData: (newData: any[], keyLocalData: string, setLocalData: React.Dispatch<any>) => void;
 }
 
 interface Item {
@@ -28,7 +30,7 @@ interface EditableCellProps {
 }
 
 interface DataType {
-  key: number;
+  key: string;
   category: string;
   color: string;
 }
@@ -61,7 +63,7 @@ function CategoriesGrid(props: CategoriesGridProps) {
             }
         }, [editing]);
 
-        const toggleEdit = () => {
+        const toggleEdit = () => {props.localData.length + 1,
             setEditing(!editing);
             form.setFieldsValue({ [dataIndex]: record[dataIndex] });
         };
@@ -105,14 +107,9 @@ function CategoriesGrid(props: CategoriesGridProps) {
     /* Read-only mode */
     type ColumnTypes = Exclude<TableProps<DataType>['columns'], undefined>;
 
-    const updateData = (newData: { key: number; category: string; color: string }[]) => {
-        localStorage.setItem(props.keyLocalData, JSON.stringify(newData));
-        props.setLocalData(newData);
-    };
-
     const handleDelete = (key: React.Key) => {
         const newData = props.localData.filter((item) => item.key !== key);
-        updateData(newData);
+        props.updateData(newData, props.keyLocalData, props.setLocalData);
     };
 
     const defaultColumns: (ColumnTypes[number] & { editable?: boolean; dataIndex: string })[] = [
@@ -143,11 +140,11 @@ function CategoriesGrid(props: CategoriesGridProps) {
 
     const handleAdd = () => {
         const newData: DataType = {
-        key: props.localData.length + 1,
-        category: `Click to edit category ${props.localData.length + 1}`,
+        key: uuidv4(),
+        category: `Click to edit category`,
         color: '#332200',
         };
-        updateData([...props.localData, newData]);
+        props.updateData([...props.localData, newData], props.keyLocalData, props.setLocalData);
     };
 
     const handleSave = (row: DataType) => {
@@ -158,7 +155,7 @@ function CategoriesGrid(props: CategoriesGridProps) {
         ...item,
         ...row,
         });
-        updateData(newData);
+        props.updateData(newData, props.keyLocalData, props.setLocalData);
     };
 
     const components = {
@@ -186,16 +183,16 @@ function CategoriesGrid(props: CategoriesGridProps) {
 
     return (
         <div>
-        <Button onClick={handleAdd} type="primary" style={{ marginBottom: 16 }}>
-            Add a row
-        </Button>
-        <Table<DataType>
-            components={components}
-            rowClassName={() => 'editable-row'}
-            bordered
-            dataSource={props.localData}
-            columns={columns as ColumnTypes}
-        />
+            <Button onClick={handleAdd} type="primary" style={{ marginBottom: 16 }}>
+                Add a row
+            </Button>
+            <Table<DataType>
+                components={components}
+                rowClassName={() => 'editable-row'}
+                bordered
+                dataSource={props.localData}
+                columns={columns as ColumnTypes}
+            />
         </div>
     );
 };
