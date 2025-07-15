@@ -240,11 +240,13 @@ function ExpensesGrid(props: ExpensesGridProps) {
             form.setFieldsValue({ [dataIndex]: record[dataIndex] });
         };
 
-        const save = async () => {
+        const saveEdit = async () => {
             try {
-            const values = await form.validateFields();
+            const date = new Date();
+            const values = {date, ...await form.validateFields()};
 
             toggleEdit();
+            
             handleSave({ ...record, ...values });
             } catch (errInfo) {
             console.log('Save failed:', errInfo);
@@ -254,7 +256,7 @@ function ExpensesGrid(props: ExpensesGridProps) {
         let childNode = children;
 
         if (editable) {
-            const inputNode = inputType === 'number' ? <InputNumber onPressEnter={save} onBlur={save}/> : <Input ref={inputRef} onPressEnter={save} onBlur={save}/>;
+            const inputNode = inputType === 'number' ? <InputNumber onPressEnter={saveEdit} onBlur={saveEdit} suffix="€"/> : <Input ref={inputRef} onPressEnter={saveEdit} onBlur={saveEdit}/>;
             childNode = editing ? (
             <Form.Item
                 style={{ margin: 0 }}
