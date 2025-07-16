@@ -83,8 +83,8 @@ function MainGrid(props: MainGridProps) {
             dataIndex: "action",
             width: 50,
             key: "action",
-            render: (_: any) => ( props.localData.length >= 1 ? (
-                <Popconfirm title="Sure to delete?" onConfirm={() => handleDelete(_.key)}>
+            render: (_, record) => ( props.localData.length >= 1 ? (
+                <Popconfirm title="Sure to delete?" onConfirm={() => handleDelete(record.key)}>
                     <a>Delete</a>
                 </Popconfirm>
                 ) : null
