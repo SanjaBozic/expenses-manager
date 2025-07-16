@@ -1,11 +1,11 @@
 import { Divider, Flex } from 'antd';
 import '../../style/framework.css';
-import AddExpense from './add-expense';
-import ExpensesGrid from './expenses-grid';
 import useData from '../../hooks/use-data';
+import AddData from '../main-grid/add-to-grid';
+import MainGrid from '../main-grid/main-grid';
 
 function Expenses() {
-    const { localExpenses, setLocalExpenses, updateData } = useData();
+    const { localExpenses, setLocalExpenses, updateData, categoriesExpenses } = useData();
     const totalAmount = localExpenses.length > 0 ? localExpenses.map(x => x.amount).reduce((sum, num) => sum + num) : null; 
 
     return (
@@ -13,8 +13,8 @@ function Expenses() {
         <div className="em-content-wrap">
             <Divider orientation="left">Expenses</Divider>
             <Flex gap="middle" justify="space-between">
-                <ExpensesGrid localData={localExpenses} setLocalData={setLocalExpenses} keyLocalData='localExpenses' updateData={updateData}/>
-                <AddExpense localData={localExpenses} setLocalData={setLocalExpenses} keyLocalData='localExpenses' updateData={updateData}/>
+                <MainGrid localData={localExpenses} setLocalData={setLocalExpenses} keyLocalData='localExpenses' updateData={updateData} categoryData={categoriesExpenses}/>
+                <AddData localData={localExpenses} setLocalData={setLocalExpenses} keyLocalData='localExpenses' updateData={updateData} categoryData={categoriesExpenses}/>
             </Flex>
             <Divider orientation="left">Total amount of expenses: {totalAmount ? totalAmount.toFixed(2) : '0.00'} €</Divider>
         </div>

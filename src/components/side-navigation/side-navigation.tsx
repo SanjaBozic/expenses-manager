@@ -33,7 +33,7 @@ function SideNavigation() {
             icon: <SettingOutlined />,
             children: [
             { key: '5', label: <Link to="/settings/categories">Categories</Link> },
-            { key: '7', label: <Link to="/settings/aboutus">About Us</Link> },
+            { key: '7', label: <Link to="/settings/information">Information</Link> },
             ]
         }
     ];
