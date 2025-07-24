@@ -1,3 +1,4 @@
+import { Divider } from 'antd';
 import '../../style/framework.css';
 
 function Information() {
@@ -9,7 +10,7 @@ function Information() {
     return (
     <>
         <div className="em-content-wrap">
-            <div>Local storage used:</div>
+            <Divider orientation="left">Local storage used:</Divider>
             {
                 Object.keys(localStorage).length > 0 ? (
                     Object.keys(localStorage).map((key, index) => (
@@ -26,7 +27,14 @@ function Information() {
                         Object.keys(localStorage).reduce((total, key) => total + (localStorage[key].length + key.length) * 2  / 1024, 0)
                     ).toFixed(2) : 0
                 } KB
-                </div>
+            </div>
+            <Divider orientation="left">About us:</Divider>
+            <div>
+                Created by Sanja Božić Ribarić <br/>
+            </div>
+            <div>
+                Github project link: <a href='https://github.com/SanjaBozic/expenses-manager'>Expenses Manager</a>
+            </div>
         </div>
 
     </>

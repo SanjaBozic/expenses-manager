@@ -1,0 +1,43 @@
+.dashboard__statistics-wrap{
+     padding: 20px;
+}
+
+.dashboard__charts{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.dashboard__waterfall-wrap{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.dashboard__waterfall{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    max-height: 500px;
+    height: 500px;
+    width: 1000px;
+}
+
+.dashboard__pies{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.dashboard__pie-wrap{
+    height: 500px;
+    max-height: 500px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 0;
+    width: 500px;
+}
+
+
