@@ -20,8 +20,17 @@ function PieChart(props: PieChartProps) {
     const themeSwitch = useTheme().appearance;
 
     const prepareData = () => {
-        let data = props.data;
-        return data.map(item => {return {type: item.categories.toString(), value: item.amount}});
+        const data = props.data;
+        const grouped = data.reduce<Record<string, number>>((acc, item) => {
+            const key = item.categories.toString();
+            acc[key] = (acc[key] || 0) + item.amount;
+            return acc;
+        }, {});
+        const result = Object.keys(grouped).map(type => ({
+             type: type,
+             value: grouped[type]
+        }));
+        return result;
     }
 
     const averageHexColor = (hexColors: string[]) => {
