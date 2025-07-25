@@ -24,8 +24,17 @@
 
 ## Screenshots
 
-![Dashboard Screenshot](https://github.com/SanjaBozic/expenses-manager/raw/main/docs/dashboard.png)
-![Expenses Grid Screenshot](https://github.com/SanjaBozic/expenses-manager/raw/main/docs/expenses.png)
+Light Mode:
+
+<img width="1434" height="1116" alt="image" src="https://github.com/user-attachments/assets/f179766d-7a5e-4842-af83-a6bc310b3b50" />
+<img width="1198" height="664" alt="image" src="https://github.com/user-attachments/assets/60be7770-f7fd-4fb3-8ea7-cd87945d2b7e" />
+<img width="1440" height="1180" alt="image" src="https://github.com/user-attachments/assets/366e7f64-69a5-4a1a-a9f9-dae4900ae30f" />
+
+Dark Mode:
+
+<img width="1440" height="1106" alt="image" src="https://github.com/user-attachments/assets/f5963b25-edbe-40f7-a3cc-eb9af2d1399c" />
+<img width="1192" height="668" alt="image" src="https://github.com/user-attachments/assets/713cd435-c6c6-422e-a027-73316fa607f2" />
+<img width="1432" height="1186" alt="image" src="https://github.com/user-attachments/assets/c0b8db47-7236-44d9-87a5-b105cbac2a64" />
 
 ## Getting Started
 
