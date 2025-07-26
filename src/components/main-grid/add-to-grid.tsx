@@ -33,7 +33,7 @@ function AddData(props: AddDataProps) {
 
     return (
     <>
-        <Card title="Add" variant="borderless" style={{ width: 600 }}>
+        <Card title="Add" variant="borderless" className="main-grid__add">
              <Form
             layout='vertical'
             form={form}

@@ -12,7 +12,7 @@ function Expenses() {
     <>
         <div className="em-content-wrap">
             <Divider orientation="left">Expenses</Divider>
-            <Flex gap="middle" justify="space-between">
+            <Flex gap="middle" justify="space-evenly" wrap={true}>
                 <MainGrid localData={localExpenses} setLocalData={setLocalExpenses} keyLocalData='localExpenses' updateData={updateData} categoryData={categoriesExpenses}/>
                 <AddData localData={localExpenses} setLocalData={setLocalExpenses} keyLocalData='localExpenses' updateData={updateData} categoryData={categoriesExpenses}/>
             </Flex>

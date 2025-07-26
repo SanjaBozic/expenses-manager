@@ -12,7 +12,7 @@ function Income() {
     <>
         <div className="em-content-wrap">
             <Divider orientation="left">Income</Divider>
-            <Flex gap="middle" justify="space-between">
+            <Flex gap="middle" justify="space-evenly" wrap={true}>
                 <MainGrid localData={localIncome} setLocalData={setLocalIncome} keyLocalData='localIncome' updateData={updateData} categoryData={categoriesIncome}/>
                 <AddData localData={localIncome} setLocalData={setLocalIncome} keyLocalData='localIncome' updateData={updateData} categoryData={categoriesIncome}/>
             </Flex>

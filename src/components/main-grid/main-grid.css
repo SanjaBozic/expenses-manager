@@ -1,0 +1,20 @@
+.main-grid{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    min-width: 600px;
+    flex-grow: 1;
+}
+
+.main-grid__export{
+    display: inline-flex;
+    gap: 10px;
+}
+
+.main-grid__wrap{
+    min-width: 600px;
+}
+
+.main-grid__add{
+    width: 600px;
+}

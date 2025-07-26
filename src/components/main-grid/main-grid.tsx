@@ -4,6 +4,7 @@ import useSearchColumn from "../main-grid/search-hook";
 import useEditMode from "./edit-mode";
 import useExport from "./export-hook";
 import { FileExcelOutlined, FilePdfOutlined } from "@ant-design/icons";
+import './main-grid.css';
 
 interface DataType {
   key: string;
@@ -115,12 +116,12 @@ function MainGrid(props: MainGridProps) {
 
     return (
     <>
-        <div style={{display: 'flex', flexDirection: 'column', gap: '10px', width: '100%'}}>
-            <div style={{display: 'inline-flex', gap: '10px'}}>
+        <div className="main-grid">
+            <div className="main-grid__export">
                 <Button onClick={exportData.onExcelPrint}><FileExcelOutlined />Export to Excel</Button>
                 <Button onClick={exportData.onPdfPrint}><FilePdfOutlined />Export to PDF</Button>
             </div>
-            <div style={{ minWidth: 600}}>
+            <div className="main-grid__wrap">
                 <Table<DataType> dataSource={data} components={components} pagination={{ pageSize: 10 }} columns={columns as ColumnsType<DataType>}></Table>
             </div>
         </div>

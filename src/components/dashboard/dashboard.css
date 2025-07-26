@@ -1,5 +1,14 @@
 .dashboard__statistics-wrap{
      padding: 20px;
+
+    & .ant-row{
+        justify-content: space-evenly;
+    }
+
+    & .ant-col{
+        min-width: 300px;
+        padding: 8px;
+    }
 }
 
 .dashboard__charts{
@@ -13,6 +22,8 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    overflow-x: scroll;
+    overflow-y: hidden;
 }
 
 .dashboard__waterfall{
