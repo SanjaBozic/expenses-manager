@@ -49,7 +49,7 @@ function AddData(props: AddDataProps) {
                     { required: true, message: 'Please input a value.' },
                     () => ({
                         validator(_rule, value, _callback) {
-                            if(!value){
+                            if(value == null || value == undefined){
                                 return Promise.resolve();
                             }
                             if (value <= 0.01){
