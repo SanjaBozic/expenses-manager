@@ -99,7 +99,8 @@ src/
 
 - **Grids:**  
   Expenses and income are displayed in editable tables. You can add, edit, or delete rows inline.
-  Also, you can export the grid data to excel of PDF.
+
+  Also, you can export the grid data to excel or PDF.
   
   Excel export:
   
