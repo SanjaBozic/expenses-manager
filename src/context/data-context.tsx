@@ -15,7 +15,12 @@ interface localDataType {
     categories: string[];
 }
 
+type themeAppearance = 'light' | 'dark';
+
 interface IDataContext {
+    theme: themeAppearance;
+    setTheme: React.Dispatch<React.SetStateAction<themeAppearance>>;
+    updateTheme: (newData: string) => void;
     categoriesExpenses: categoriesType[];
     categoriesIncome: categoriesType[];
     localExpenses: localDataType[];
@@ -31,6 +36,8 @@ interface IDataContext {
 export const DataContext = createContext<IDataContext | null>(null);
 
 export const useCreateDataCtx = () => {
+    const [theme, setTheme] = useState(localStorage.getItem('theme') ? JSON.parse(localStorage.getItem('theme')!) : 'light');
+
     const [categoriesExpenses, setCategoriesExpenses] = useState( localStorage.getItem('categoriesExpenses') ? JSON.parse(localStorage.getItem('categoriesExpenses')!) :
         [{key: uuidv4(), category: 'bills', color: '#f56a00'},
         {key: uuidv4(), category: 'groceries', color: '#7265e6'},
@@ -58,5 +65,10 @@ export const useCreateDataCtx = () => {
         setLocalData(newData);
     };
 
-    return {categoriesExpenses, categoriesIncome, localExpenses, localIncome, updateData, setCategoriesExpenses, setCategoriesIncome, setLocalExpenses, setLocalIncome} as IDataContext;
+    const updateTheme = (newData: string) => {
+        localStorage.setItem('theme', JSON.stringify(newData));
+        setTheme(newData);
+    };
+
+    return {theme, setTheme, updateTheme ,categoriesExpenses, categoriesIncome, localExpenses, localIncome, updateData, setCategoriesExpenses, setCategoriesIncome, setLocalExpenses, setLocalIncome} as IDataContext;
 };

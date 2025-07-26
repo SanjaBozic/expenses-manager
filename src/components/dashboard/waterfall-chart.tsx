@@ -34,30 +34,30 @@ function WaterfallChart(props: WaterfallChartProps) {
     const config = {
         theme: themeSwitch == 'light' ? 'classic' : 'classicDark',
         data: prepareData(),
-        xField: 'x',
-        yField: 'value',
-        linkStyle: {
-        lineDash: [4, 2],
-        stroke: '#ccc',
+            xField: 'x',
+            yField: 'value',
+            linkStyle: {
+            lineDash: [4, 2],
+            stroke: '#ccc',
         },
         style: {
-        maxWidth: 25,
-        stroke: '#ccc',
-        fill: (d:any, idx:any) => {
-            return idx === 0 || d.isTotal ? '#16446cff' : d.value > 0 ? '#0c7536ff' : '#8e2607ff';
-        },
+            maxWidth: 25,
+            stroke: '#ccc',
+            fill: (d:any, idx:any) => {
+                return idx === 0 || d.isTotal ? '#16446cff' : d.value > 0 ? '#0c7536ff' : '#8e2607ff';
+            },
         },
         label: {
-        text: 'value',
-        formatter: '~s',
-        position: (d:any) => (d.value > 0 ? 'top' : 'bottom'),
-        textBaseline: (d:any) => (d.value > 0 ? 'bottom' : 'top'),
-        fontSize: 10,
-        dy: (d:any) => (d.value > 0 ? -4 : 4),
+            text: 'value',
+            formatter: '~s',
+            position: (d:any) => (d.value > 0 ? 'top' : 'bottom'),
+            textBaseline: (d:any) => (d.value > 0 ? 'bottom' : 'top'),
+            fontSize: 10,
+            dy: (d:any) => (d.value > 0 ? -4 : 4),
         },
         connector: {
-        reverse: true,
-        style: { stroke: '#697474', offset: 16 },
+            reverse: true,
+            style: { stroke: '#697474', offset: 16 },
         },
   };
   

@@ -1,7 +1,6 @@
 import { Layout } from 'antd';
 import { Content, Footer, Header } from 'antd/es/layout/layout';
 import { ThemeProvider } from 'antd-style';
-import { useState } from 'react';
 import { BrowserRouter as Router } from 'react-router';
 import './main-layout.css';
 import TopNavigation from '../top-navigation/top-navigation';
@@ -9,20 +8,17 @@ import SideNavigation from '../side-navigation/side-navigation';
 import PageRoutes from '../routes/page-routes';
 import { DataContext, useCreateDataCtx } from '../../context/data-context';
 
-type themeAppearance = 'light' | 'dark';
-
 function MainLayout() {
-    const [theme, setTheme] = useState<themeAppearance>('light');
+    const data = useCreateDataCtx();
 
     const switchTheme = (checked: boolean) => {
-        setTheme(checked ? 'dark' : 'light');
+        const switchData = checked ? 'dark' : 'light';
+        data.updateTheme(switchData);
     };
-
-    const data = useCreateDataCtx();
 
     return (
     <>
-    <ThemeProvider appearance={theme}>
+    <ThemeProvider appearance={data.theme}>
         <DataContext.Provider value={data}>
             <Layout className="main-layout">
                 <Header>

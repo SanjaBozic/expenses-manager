@@ -5,18 +5,18 @@ import { Menu, type GetProp, type MenuProps, type MenuTheme } from 'antd';
 import { Link, useLocation } from 'react-router';
 import { useTheme } from 'antd-style';
 
+interface MenuItemData {
+    key: string;
+    path?: string;
+    label: string;
+    icon?: React.ReactNode;
+    children?: MenuItemData[];
+}
+
 function SideNavigation() {
     const [collapsed, setCollapsed] = useState(false);
     const themeSwitch = useTheme().appearance;
     const location = useLocation();
-
-    type MenuItemData = {
-        key: string;
-        path?: string;
-        label: string;
-        icon?: React.ReactNode;
-        children?: MenuItemData[];
-    };
 
     const data: MenuItemData[] = [
         {

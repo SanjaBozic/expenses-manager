@@ -19,7 +19,7 @@ function TopNavigation(props: TopNavigationProps) {
         },
         {
             key: '2',
-            label: <Switch checkedChildren={<MoonOutlined />} unCheckedChildren={<SunOutlined />} onClick={props.switchTheme} />,
+            label: <Switch checkedChildren={<MoonOutlined />} unCheckedChildren={<SunOutlined />} onClick={props.switchTheme} defaultChecked={themeSwitch === 'light' ? false : true} />,
             className: 'top-nav__theme-switch'
         }
     ];
