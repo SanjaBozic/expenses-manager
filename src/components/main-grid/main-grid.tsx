@@ -1,7 +1,9 @@
-import { Popconfirm, Table, Tag } from "antd";
+import { Button, Popconfirm, Table, Tag } from "antd";
 import type { ColumnsType } from "antd/es/table/interface";
 import useSearchColumn from "../main-grid/search-hook";
 import useEditMode from "./edit-mode";
+import useExport from "./export-hook";
+import { FileExcelOutlined, FilePdfOutlined } from "@ant-design/icons";
 
 interface DataType {
   key: string;
@@ -100,9 +102,28 @@ function MainGrid(props: MainGridProps) {
         defaultColumns
     });
 
+    const exportColumns = (columns as ColumnsType<DataType>).map(col => {
+        // Remove custom properties and ensure title is a string
+        const { editable, onCell, ...rest } = col as any;
+        return {
+            ...rest,
+            title: typeof col.title === "string" ? col.title : "",
+        };
+    });
+
+    const exportData = useExport({columns: exportColumns, data: data, fileName: props.keyLocalData.replace('local','')});
+
     return (
     <>
-        <Table<DataType> dataSource={data} components={components} pagination={{ pageSize: 10 }} columns={columns as ColumnsType<DataType>} style={{ minWidth: 600, width: '100%' }} ></Table>
+        <div style={{display: 'flex', flexDirection: 'column', gap: '10px', width: '100%'}}>
+            <div style={{display: 'inline-flex', gap: '10px'}}>
+                <Button onClick={exportData.onExcelPrint}><FileExcelOutlined />Export to Excel</Button>
+                <Button onClick={exportData.onPdfPrint}><FilePdfOutlined />Export to PDF</Button>
+            </div>
+            <div style={{ minWidth: 600}}>
+                <Table<DataType> dataSource={data} components={components} pagination={{ pageSize: 10 }} columns={columns as ColumnsType<DataType>}></Table>
+            </div>
+        </div>
     </>
     )
 }
