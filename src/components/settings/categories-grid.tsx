@@ -1,8 +1,9 @@
 import React, { useContext, useEffect, useRef, useState } from 'react';
 import type { GetRef, InputRef, TableProps } from 'antd';
-import { Button, Form, Input, Popconfirm, Table } from 'antd';
+import { Button, Form, Input, Popconfirm, Table, Tooltip } from 'antd';
 import './categories.css'
 import { v4 as uuidv4 } from 'uuid';
+import { InfoCircleOutlined } from '@ant-design/icons';
 
 interface CategoriesGridProps {
     localData: { key: string; category: string; color: string }[];
@@ -118,7 +119,14 @@ function CategoriesGrid(props: CategoriesGridProps) {
         dataIndex: 'category',
         editable: true,
         },{
-        title: 'Color',
+        title: <> 
+            <div className='categories__color-header'>
+                <span>Color</span> 
+                <Tooltip placement="top" title={'Category color must be written as hex code (example: #0022EE).'}>
+                    <InfoCircleOutlined />
+                </Tooltip>
+            </div>
+            </>,
         width: '30%',
         dataIndex: 'color',
         editable: true,

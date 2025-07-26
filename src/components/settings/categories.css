@@ -4,3 +4,8 @@
     border-radius: 4px;
     display: inline-block;
 }
+
+.categories__color-header{
+    display: flex;
+    gap: 10px;
+}

@@ -45,7 +45,7 @@ export const useCreateDataCtx = () => {
         {key: uuidv4(), category: 'transportation', color: '#00a2ae'},
         {key: uuidv4(), category: 'healthcare', color: '#87d068'},
         {key: uuidv4(), category: 'clothing', color: '#2db7f5'},
-        {key: uuidv4(), category: 'education', color: '#f50'},
+        {key: uuidv4(), category: 'education', color: '#ff5500'},
         {key: uuidv4(), category: 'other', color: '#108ee9'}
     ]);
 
