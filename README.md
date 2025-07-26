@@ -120,14 +120,6 @@ src/
 - **Data Reset:**  
   To clear all data, use your browser’s localStorage tools.
 
-## Contributing
-
-Pull requests are welcome! For major changes, please open an issue first to discuss what you would like to change.
-
-## License
-
-[MIT](LICENSE)
-
 ## Author
 
 Created by [Sanja Božić Ribarić](https://github.com/SanjaBozic)
