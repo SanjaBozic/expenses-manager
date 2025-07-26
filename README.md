@@ -78,7 +78,7 @@ src/
     dashboard/         # Dashboard, charts, statistics
     expenses/          # Expenses grid and logic
     income/            # Income grid and logic
-    main-grid/         # Shared grid components (add/edit/search)
+    main-grid/         # Shared grid components (add/edit/search/export)
     main-layout/       # Layout, navigation, theming
     settings/          # Category management, info
     side-navigation/   # Sidebar navigation
@@ -99,6 +99,15 @@ src/
 
 - **Grids:**  
   Expenses and income are displayed in editable tables. You can add, edit, or delete rows inline.
+  Also, you can export the grid data to excel of PDF.
+  
+  Excel export:
+  
+  <img width="534" height="206" alt="image" src="https://github.com/user-attachments/assets/53ad3c47-b130-4e4b-b008-6a423b7f2987" />
+
+  PDF export:
+
+  <img width="1062" height="408" alt="image" src="https://github.com/user-attachments/assets/bd486f59-c33a-4c1a-bb80-b3420c55a29b" />
 
 - **Charts:**  
   The dashboard uses Ant Design Plots for pie and waterfall charts, providing a visual breakdown of your finances.
