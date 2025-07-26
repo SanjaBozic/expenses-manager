@@ -45,7 +45,20 @@ function AddData(props: AddDataProps) {
                         ))}
                     </Select>
                 </Form.Item>
-                <Form.Item name="amount" label="Amount" rules={[{ required: true, message: 'Please input a value.' }]} >
+                <Form.Item name="amount" label="Amount"  rules={[
+                    { required: true, message: 'Please input a value.' },
+                    () => ({
+                        validator(_rule, value, _callback) {
+                            if(!value){
+                                return Promise.resolve();
+                            }
+                            if (value <= 0.01){
+                                return Promise.reject("The value must be at least 0.01 or higher.");
+                            }
+                            return Promise.resolve();
+                        },
+                    })
+                    ]} >
                     <InputNumber />
                 </Form.Item>
                 <Form.Item name="description" label="Description"  rules={[{ required: true, message: 'Please input a description.' }]}>
